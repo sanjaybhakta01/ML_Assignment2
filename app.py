@@ -14,10 +14,9 @@ This app allows you to upload bank marketing data and predict outcomes using 6 d
 *Assignment by: Sanjay Bhakta K (2024DC04026)*
 """)
 
-# Sidebar settings
-st.sidebar.header("Settings")
-model_choice = st.sidebar.selectbox(
-    "Select Model",
+st.write("Select Your Model")
+model_choice = st.selectbox(
+    "Choose a model to see its specific performance:",
     ("Logistic Regression", "Decision Tree", "KNN", "Naive Bayes", "Random Forest", "XGBoost")
 )
 
@@ -42,6 +41,7 @@ if uploaded_file is not None:
         
             st.subheader(f"Evaluation Results: {model_choice}")
             
+            #Using metrics generated from .ipynb file
             metrics = {
                 "Logistic Regression": ["91.1%", "0.517", "0.487"],
                 "Decision Tree": ["88.7%", "0.516", "0.452"],
