@@ -44,7 +44,7 @@ if uploaded_file is not None:
             #Using metrics generated from .ipynb file
             metrics = {
                 "Logistic Regression": ["91.1%", "0.517", "0.487"],
-                "Decision Tree": ["88.7%", "0.516", "0.452"],
+                "Decision Tree":    ["88.7%", "0.516", "0.452"],
                 "KNN": ["90.2%", "0.520", "0.470"],
                 "Naive Bayes": ["86.5%", "0.466", "0.392"],
                 "Random Forest": ["91.0%", "0.531", "0.494"],
@@ -58,11 +58,14 @@ if uploaded_file is not None:
             col3.metric("MCC", res[2])
 
             st.write("### Confusion Matrix")
-            fig, ax = plt.subplots(figsize=(5, 3))
+            fig, ax = plt.subplots(figsize=(2, 2))
             sns.heatmap([[3500, 150], [200, 450]], annot=True, fmt='d', cmap='Blues', ax=ax)
-            plt.xlabel("Predicted")
-            plt.ylabel("Actual")
-            st.pyplot(fig)
+            plt.xlabel("Predicted", fontsize=7)
+            plt.ylabel("Actual", fontsize=7)
+            plt.xticks(fontsize=6)
+            plt.yticks(fontsize=6)
+            
+            st.pyplot(fig, width="content")
 
         except Exception as e:
             st.error(f"Error loading model: {e}. Check 'model/' folder.")
