@@ -58,7 +58,7 @@ if uploaded_file is not None:
             col3.metric("MCC", res[2])
 
             st.write("### Confusion Matrix")
-            fig, ax = plt.subplots()
+            fig, ax = plt.subplots(figsize=(5, 3))
             sns.heatmap([[3500, 150], [200, 450]], annot=True, fmt='d', cmap='Blues', ax=ax)
             plt.xlabel("Predicted")
             plt.ylabel("Actual")
